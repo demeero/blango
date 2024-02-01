@@ -17,6 +17,8 @@ from configurations import values
 import dj_database_url
 
 class Dev(Configuration):
+    INTERNAL_IPS = ["192.168.11.179"]
+    
     LOGGING = {
         "version": 1,
         "disable_existing_loggers": False,
@@ -89,13 +91,15 @@ class Dev(Configuration):
         'django.contrib.staticfiles',
         'blog',
         'crispy_forms',
-        'crispy_bootstrap5'
+        'crispy_bootstrap5',
+        "debug_toolbar"
     ]
 
     CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
     CRISPY_TEMPLATE_PACK = "bootstrap5"
 
     MIDDLEWARE = [
+        "debug_toolbar.middleware.DebugToolbarMiddleware",
         'django.middleware.security.SecurityMiddleware',
         'django.contrib.sessions.middleware.SessionMiddleware',
         'django.middleware.common.CommonMiddleware',
