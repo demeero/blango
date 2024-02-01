@@ -18,6 +18,8 @@ import dj_database_url
 
 class Dev(Configuration):
     INTERNAL_IPS = ["192.168.11.179"]
+
+    AUTH_USER_MODEL = "blango_auth.User"
     
     LOGGING = {
         "version": 1,
@@ -89,10 +91,11 @@ class Dev(Configuration):
         'django.contrib.sessions',
         'django.contrib.messages',
         'django.contrib.staticfiles',
+        "blango_auth",
         'blog',
         'crispy_forms',
         'crispy_bootstrap5',
-        "debug_toolbar"
+        "debug_toolbar",
     ]
 
     CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
